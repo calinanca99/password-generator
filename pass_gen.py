@@ -1,4 +1,3 @@
-#from get_pref import get_pref
 from get_pref_v2 import get_pref
 
 def pass_gen(length):
