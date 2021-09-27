@@ -1,22 +1,22 @@
-from get_pref_v2 import get_pref
+from preferences import *
 
-def pass_gen(length):
+def generator():
     """
-    The actual password generator.
+    Deals with the generation of the actual password.
     """
     import random
+
+    length = set_length()
 
     symbols = "!@#$%^&*"
     digits = "0123456789"
     lower_case = "abcdefghijklmnopqrstuvwxyz"
     upper_case = "ABCDEFGHIJKLMNOQPRSTUVWXYZ"
 
-    ###Some code to get preferences. For now assume all true
-
     char = ""
     pwd = ""
 
-    includeSymbols, includeDigits, includeLower, includeUpper = get_pref()
+    includeSymbols, includeDigits, includeLower, includeUpper = set_preferences()
 
     if includeSymbols:
         char += symbols
@@ -30,7 +30,7 @@ def pass_gen(length):
     if includeUpper:
         char += upper_case
 
-    if not includeSymbols and not includeDigits and not includeLower and not includeUpper: #Create some code to avoid this awkward situation
+    if not includeSymbols and not includeDigits and not includeLower and not includeUpper:
         print("The password is empty!")
         return
 
